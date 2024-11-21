@@ -1,13 +1,14 @@
 //* Import all partials
 
 //* Abstracts -->
+@use "./abstracts/fonts";
 
 //* Layouts -->
-@import "./layouts/layout";
-@import "./base/reset";
+@use "./layouts/layout";
+@use "./base/reset";
 
 //* Components -->
-@import "./components/calculatorNode/calculatorNode";
-@import "./components/calculatorNode/internalComponents/dotCluster";
-@import "./components/calculatorNode/header";
+@use "./components/calculatorNode/calculatorNode";
+@use "./components/calculatorNode/internalComponents/dotCluster";
+@use "./components/calculatorNode/header";
 //* Pages -->
