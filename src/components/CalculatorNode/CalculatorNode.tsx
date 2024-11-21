@@ -1,14 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import Header from "./Header";
 
 const CalculatorNode: React.FC = () => {
-  //* Local States - >
-
-  // const [equation, setEquation] = useState<string>("");
-
-  // const handleEquationChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
   return (
     <div className="calculator-node">
-      {/* <input type="text" value={equation} onChange={handleEquationChange} /> */}
+      <Header />
     </div>
   );
 };

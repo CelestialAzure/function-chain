@@ -1,0 +1,14 @@
+.dot-cluster {
+  width: 12px;
+  height: 7.09px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1px;
+  &--dot {
+    width: 3px;
+    height: 2.73px;
+    background-color: #cdcdcd;
+    border-radius: 100px;
+  }
+}
