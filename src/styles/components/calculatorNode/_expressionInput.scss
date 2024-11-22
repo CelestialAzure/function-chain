@@ -1,0 +1,15 @@
+.expression-input {
+  margin-top: 20px;
+  &--header {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14.52px;
+    margin-bottom: 4px;
+  }
+  &--box {
+    border: 1px solid #d3d3d3;
+    border-radius: 8px;
+    padding: 9px 11px;
+    width: 100%;
+  }
+}

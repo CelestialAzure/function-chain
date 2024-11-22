@@ -11,4 +11,8 @@
 @use "./components/calculatorNode/calculatorNode";
 @use "./components/calculatorNode/internalComponents/dotCluster";
 @use "./components/calculatorNode/header";
+@use "./components/calculatorNode/expressionInput";
+@use "./components/calculatorNode/functionPicker";
+@use "./components/calculatorNode/nodeConnector";
+
 //* Pages -->
