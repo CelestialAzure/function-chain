@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import ExpressionInput from "./ExpressionInput";
 import FunctionPicker from "./FunctionPicker";
+import NodeConnector from "./NodeConnector";
 
 const CalculatorNode: React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const CalculatorNode: React.FC = () => {
       <Header />
       <ExpressionInput />
       <FunctionPicker />
+      <NodeConnector />
     </div>
   );
 };

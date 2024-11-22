@@ -1,0 +1,25 @@
+.node-connector {
+  margin-top: 46px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  &--inner {
+    &_wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    &_text {
+      font-weight: 500;
+      font-size: 10px;
+      color: #585757;
+      &.left {
+        margin-left: 4px;
+      }
+      &.right {
+        margin-right: 4px;
+      }
+    }
+  }
+}
