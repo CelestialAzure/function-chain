@@ -1,10 +1,11 @@
 import React from "react";
-import Header from "./Header";
+import Dropdown from "./internalComponents/Dropdown";
 
 const FunctionPicker: React.FC = () => {
   return (
     <div className="function-picker">
-      <Header />
+      <p className="function-picker--header">Next function</p>
+      <Dropdown disabled={true} />
     </div>
   );
 };
