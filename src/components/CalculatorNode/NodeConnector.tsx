@@ -23,7 +23,7 @@ const Node: React.FC<NodeProps> = ({
         <>
           <p className="node-connector--inner_text right">output</p>
           <div
-            className="connection-point"
+            className="node-connector--connection_point"
             ref={(el) => (outputRefs.current[nodeData.id] = el)}
           >
             <svg
@@ -57,7 +57,7 @@ const Node: React.FC<NodeProps> = ({
       {position == 0 && (
         <>
           <div
-            className="connection-point"
+            className="node-connector--connection_point"
             ref={(el) => (inputRefs.current[nodeData.id] = el)}
           >
             <svg

@@ -8,7 +8,12 @@ interface Line {
   x2: number;
   y2: number;
 }
-
+type Point = {
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+};
 const App: React.FC = () => {
   //* Local States - >
   const [nodes, setNodes] = useState<FunctionNode[]>(defaultNodes);
@@ -53,6 +58,29 @@ const App: React.FC = () => {
     return () => window.removeEventListener("resize", updateLines);
   }, [nodes.length]);
 
+  const getCurvePath = (line: Point) => {
+    const midX = (line.x1 + line.x2) / 2;
+    const midY = (line.y1 + line.y2) / 2;
+    const curveOffset = 60;
+
+    if (Math.abs(line.y1 - line.y2) < 5) {
+      return `M ${line.x1} ${line.y1} 
+              Q ${midX} ${line.y1 + curveOffset}, 
+              ${line.x2} ${line.y2}`;
+    }
+
+    if (Math.abs(line.x1 - line.x2) < 25) {
+      return `M ${line.x1} ${line.y1} 
+              Q ${line.x1 + curveOffset} ${midY}, 
+              ${line.x2} ${line.y2}`;
+    }
+
+    return `M ${line.x1} ${line.y1} 
+          C ${line.x1} ${line.y1 + 150},  
+            ${line.x2} ${line.y2 - 150},  
+            ${line.x2} ${line.y2}`;
+  };
+
   return (
     <div className="function-chain--wrapper">
       <div className="function-chain">
@@ -67,15 +95,21 @@ const App: React.FC = () => {
           />
         ))}
         <svg className="function-chain--connection-lines">
-          {lines.map((line, index) => (
-            <line
-              key={index}
-              x1={line.x1}
-              y1={line.y1}
-              x2={line.x2}
-              y2={line.y2}
-            />
-          ))}
+          {lines.map((line, index) => {
+            return (
+              <path
+                key={index}
+                d={getCurvePath(line)}
+                fill="none"
+                stroke="#0066ff"
+                strokeWidth="7"
+                style={{
+                  strokeLinecap: "round",
+                  opacity: 0.3,
+                }}
+              />
+            );
+          })}
         </svg>
       </div>
     </div>
