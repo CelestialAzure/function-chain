@@ -1,11 +1,13 @@
 import React from "react";
 import DotCluster from "./internalComponents/DotCluster";
-
-const Header: React.FC = () => {
+interface HeaderProps {
+  title: number;
+}
+const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
     <div className="calculator-node--header">
       <DotCluster />
-      <p className="calculator-node--header--title">Function: 2</p>
+      <p className="calculator-node--header--title">{title}</p>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 
 interface Option {
-  id: number;
+  id: number | null;
   label: string;
 }
 
@@ -13,11 +13,7 @@ interface DropdownProps {
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
-  options = [
-    { id: 1, label: "Function: 1" },
-    { id: 2, label: "Function: 2" },
-    { id: 3, label: "Function: 3" },
-  ],
+  options,
   defaultValue,
   onChange,
   disabled,
@@ -80,7 +76,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         </svg>
       </button>
 
-      {isOpen && (
+      {isOpen && options && (
         <div className="custom-dropdown--menu">
           <ul className="custom-dropdown--list">
             {options.map((option) => (
