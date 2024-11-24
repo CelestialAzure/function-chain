@@ -1,9 +1,16 @@
 .function-chain {
   display: flex;
-  flex: 1;
-  padding: 100px 20px;
   justify-content: center;
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 100px;
+  gap: 107px 131px;
+  width: 967px;
+
+  &--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 }
