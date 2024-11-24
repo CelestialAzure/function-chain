@@ -6,7 +6,6 @@ interface FunctionPickerProps {
   node: FunctionNode;
 }
 const FunctionPicker: React.FC<FunctionPickerProps> = ({ nodes, node }) => {
-  console.log("node", nodes);
   return (
     <div className="function-picker">
       <p className="function-picker--header">Next function</p>

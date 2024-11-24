@@ -1,7 +1,7 @@
 import React from "react";
 import DotCluster from "./internalComponents/DotCluster";
 interface HeaderProps {
-  title: number;
+  title: string;
 }
 const Header: React.FC<HeaderProps> = ({ title }) => {
   return (

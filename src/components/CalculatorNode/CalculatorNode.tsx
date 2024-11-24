@@ -16,7 +16,7 @@ const CalculatorNode: React.FC<CalculatorNodeProps> = ({
 }) => {
   return (
     <div className="calculator-node">
-      <Header title={node.id} />
+      <Header title={node.name} />
       <ExpressionInput node={node} setNodes={setNodes} />
       <FunctionPicker nodes={nodes} node={node} />
       <NodeConnector />
