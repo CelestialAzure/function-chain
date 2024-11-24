@@ -8,18 +8,26 @@ interface CalculatorNodeProps {
   node: FunctionNode;
   nodes: FunctionNode[];
   setNodes: React.Dispatch<React.SetStateAction<FunctionNode[]>>;
+  outputRefs: React.MutableRefObject<(HTMLDivElement | null)[]>;
+  inputRefs: React.MutableRefObject<(HTMLDivElement | null)[]>;
 }
 const CalculatorNode: React.FC<CalculatorNodeProps> = ({
   node,
   nodes,
   setNodes,
+  outputRefs,
+  inputRefs,
 }) => {
   return (
     <div className="calculator-node">
       <Header title={node.name} />
       <ExpressionInput node={node} setNodes={setNodes} />
       <FunctionPicker nodes={nodes} node={node} />
-      <NodeConnector />
+      <NodeConnector
+        outputRefs={outputRefs}
+        inputRefs={inputRefs}
+        nodeData={node}
+      />
     </div>
   );
 };
