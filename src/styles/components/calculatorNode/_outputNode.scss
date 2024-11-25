@@ -1,0 +1,41 @@
+.final-output {
+  position: absolute;
+  left: calc(100% + 67px);
+  bottom: -100%;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  &--top {
+    padding: 4px 15px;
+    background: #4caf79;
+    border-radius: 14px;
+    margin-bottom: 6px;
+
+    &--text {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 14.52px;
+      color: #fff;
+    }
+  }
+  &--bottom {
+    border: 2px solid #2dd179;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    &--left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      border-right: 1px solid #c5f2da;
+    }
+    &--right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { FunctionNode } from "../../helpers/types";
+import OutputNode from "./OutputNode";
 interface NodeProps {
   position: number;
   outputRefs: React.MutableRefObject<(HTMLDivElement | null)[]>;
@@ -50,6 +51,7 @@ const Node: React.FC<NodeProps> = ({
                 fill="#4791ff"
               />
             </svg>
+            {nodeData.isFinal && <OutputNode value={10} />}
           </div>
         </>
       )}
