@@ -2,18 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import CalculatorNode from "./components/CalculatorNode/CalculatorNode";
 import { FunctionNode } from "./helpers/types";
 import { defaultNodes } from "./helpers/constants";
-interface Line {
-  x1: number;
-  y1: number;
-  x2: number;
-  y2: number;
-}
-type Point = {
-  x1: number;
-  y1: number;
-  x2: number;
-  y2: number;
-};
+import getCurvePath from "./helpers/lineDraw";
+import { Line } from "./helpers/types";
+
 const App: React.FC = () => {
   //* Local States - >
   const [nodes, setNodes] = useState<FunctionNode[]>(defaultNodes);
@@ -57,29 +48,6 @@ const App: React.FC = () => {
     window.addEventListener("resize", updateLines);
     return () => window.removeEventListener("resize", updateLines);
   }, [nodes.length]);
-
-  const getCurvePath = (line: Point) => {
-    const midX = (line.x1 + line.x2) / 2;
-    const midY = (line.y1 + line.y2) / 2;
-    const curveOffset = 60;
-
-    if (Math.abs(line.y1 - line.y2) < 5) {
-      return `M ${line.x1} ${line.y1} 
-              Q ${midX} ${line.y1 + curveOffset}, 
-              ${line.x2} ${line.y2}`;
-    }
-
-    if (Math.abs(line.x1 - line.x2) < 25) {
-      return `M ${line.x1} ${line.y1} 
-              Q ${line.x1 + curveOffset} ${midY}, 
-              ${line.x2} ${line.y2}`;
-    }
-
-    return `M ${line.x1} ${line.y1} 
-          C ${line.x1} ${line.y1 + 150},  
-            ${line.x2} ${line.y2 - 150},  
-            ${line.x2} ${line.y2}`;
-  };
 
   return (
     <div className="function-chain--wrapper">

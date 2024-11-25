@@ -1,4 +1,4 @@
-export interface FunctionNode {
+ interface FunctionNode {
     id: number;
     name: string;
     equation: string;
@@ -10,4 +10,11 @@ export interface FunctionNode {
     isInitial: boolean;
     isFinal: boolean;
   }
-  
+  interface Line {
+    x1: number;
+    y1: number;
+    x2: number;
+    y2: number;
+  }
+
+  export type { FunctionNode, Line };
