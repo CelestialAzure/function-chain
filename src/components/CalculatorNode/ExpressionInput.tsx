@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { FunctionNode } from "../../helpers/types";
 import useDebounce from "../../helpers/hooks/useDebounce";
+import {
+  evaluateEquation,
+  validateEquation,
+} from "../../helpers/equationHandler";
 interface ExpressionInputProps {
   node: FunctionNode;
   setNodes: React.Dispatch<React.SetStateAction<FunctionNode[]>>;
@@ -11,22 +15,18 @@ const ExpressionInput: React.FC<ExpressionInputProps> = ({
 }) => {
   useEffect(() => {
     if (!node.input || !node.equation) {
-      //Reset current nodes output user input
-      // console.log("no input or equation", node.id);
       setNodes((prevNodes) => {
         return prevNodes.map((n) => {
           if (n.id === node.outputUser.id) {
-            // console.log("resetting output node - effect");
             return {
               ...n,
-              input: "", // Your evaluation logic here
+              input: null, // Your evaluation logic here
             };
           }
           return n;
         });
       });
     } else {
-      //Set output user input
       console.log("input and equation present", node.id);
       setNodes((prevNodes) => {
         return prevNodes.map((n) => {
@@ -34,7 +34,7 @@ const ExpressionInput: React.FC<ExpressionInputProps> = ({
             console.log("updating output node - effect");
             return {
               ...n,
-              input: evaluate(node.equation), // Your evaluation logic here
+              input: evaluateEquation(node.equation, node.input), // Your evaluation logic here
             };
           }
           return n;
@@ -43,19 +43,13 @@ const ExpressionInput: React.FC<ExpressionInputProps> = ({
     }
   }, [node.input]);
 
-  const evaluate = (input: string) => {
-    const valid = ["+", "-", "*", "/"];
-    if (valid.includes(input)) return input;
-    console.log("0----no----");
-    return "";
-  };
   const updateOutputNode = (equation: string) => {
     setNodes((prevNodes) => {
       return prevNodes.map((n) => {
         if (n.id === node.outputUser.id) {
           return {
             ...n,
-            input: evaluate(equation), // Your evaluation logic here
+            input: evaluateEquation(equation, node.input), // Your evaluation logic here
           };
         }
         return n;
@@ -67,6 +61,7 @@ const ExpressionInput: React.FC<ExpressionInputProps> = ({
   const handleEquationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
 
+    if (!validateEquation(newValue)) return;
     setNodes((prevNodes) =>
       prevNodes.map((n) =>
         n.id === node.id ? { ...n, equation: newValue } : n

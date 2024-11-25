@@ -6,7 +6,7 @@
       id: number | null;
       name: string;
     };
-    input: string;
+    input: number | null;
     isInitial: boolean;
     isFinal: boolean;
   }
