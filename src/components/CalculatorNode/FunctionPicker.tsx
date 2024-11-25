@@ -5,7 +5,7 @@ interface FunctionPickerProps {
   nodes: FunctionNode[];
   node: FunctionNode;
 }
-const FunctionPicker: React.FC<FunctionPickerProps> = ({ nodes, node }) => {
+const FunctionPicker: React.FC<FunctionPickerProps> = ({ node }) => {
   return (
     <div className="function-picker">
       <p className="function-picker--header">Next function</p>

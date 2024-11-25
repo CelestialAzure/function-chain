@@ -21,6 +21,7 @@ const  getCurvePath = (line: Point) => {
               ${line.x2} ${line.y2}`;
     }
 
+    //* for diagonal lines 
     return `M ${line.x1} ${line.y1} 
           C ${line.x1} ${line.y1 + 150},  
             ${line.x2} ${line.y2 - 150},  

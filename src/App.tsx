@@ -65,6 +65,7 @@ const App: React.FC = () => {
             inputRefs={inputRefs}
           />
         ))}
+        {/* Draw the connection lines */}
         <svg className="function-chain--connection-lines">
           {lines.map((line, index) => {
             return (

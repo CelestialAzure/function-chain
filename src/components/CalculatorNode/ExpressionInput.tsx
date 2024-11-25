@@ -20,7 +20,7 @@ const ExpressionInput: React.FC<ExpressionInputProps> = ({
           if (n.id === node.outputUser.id) {
             return {
               ...n,
-              input: null, // Your evaluation logic here
+              input: null,
             };
           }
           if (node.isFinal && n.id === node.id) {
@@ -40,7 +40,7 @@ const ExpressionInput: React.FC<ExpressionInputProps> = ({
             console.log("updating output node - effect");
             return {
               ...n,
-              input: evaluateEquation(node.equation, node.input), // Your evaluation logic here
+              input: evaluateEquation(node.equation, node.input),
             };
           }
           if (node.isFinal && n.id === node.id)
@@ -60,7 +60,7 @@ const ExpressionInput: React.FC<ExpressionInputProps> = ({
         if (n.id === node.outputUser.id)
           return {
             ...n,
-            input: evaluateEquation(equation, node.input), // Your evaluation logic here
+            input: evaluateEquation(equation, node.input),
           };
         if (node.isFinal && n.id === node.id)
           return {
