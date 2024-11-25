@@ -27,6 +27,7 @@ const CalculatorNode: React.FC<CalculatorNodeProps> = ({
         outputRefs={outputRefs}
         inputRefs={inputRefs}
         nodeData={node}
+        setNodes={setNodes}
       />
     </div>
   );

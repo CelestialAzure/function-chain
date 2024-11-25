@@ -1,22 +1,26 @@
 import React from "react";
 import { FunctionNode } from "../../helpers/types";
 import OutputNode from "./OutputNode";
+import InputNode from "./InputNode";
 interface NodeProps {
   position: number;
   outputRefs: React.MutableRefObject<(HTMLDivElement | null)[]>;
   inputRefs: React.MutableRefObject<(HTMLDivElement | null)[]>;
   nodeData: FunctionNode;
+  setNodes: React.Dispatch<React.SetStateAction<FunctionNode[]>>;
 }
 interface NodeConnectorProps {
   outputRefs: React.MutableRefObject<(HTMLDivElement | null)[]>;
   inputRefs: React.MutableRefObject<(HTMLDivElement | null)[]>;
   nodeData: FunctionNode;
+  setNodes: React.Dispatch<React.SetStateAction<FunctionNode[]>>;
 }
 const Node: React.FC<NodeProps> = ({
   position,
   outputRefs,
   inputRefs,
   nodeData,
+  setNodes,
 }) => {
   return (
     <div className="node-connector--inner_wrapper">
@@ -86,6 +90,9 @@ const Node: React.FC<NodeProps> = ({
                 fill="#4791ff"
               />
             </svg>
+            {nodeData.isInitial && (
+              <InputNode node={nodeData} setNodes={setNodes} />
+            )}
           </div>
           <p className="node-connector--inner_text left">input</p>
         </>
@@ -97,6 +104,7 @@ const NodeConnector: React.FC<NodeConnectorProps> = ({
   outputRefs,
   inputRefs,
   nodeData,
+  setNodes,
 }) => {
   const numberOfNodes = 2;
 
@@ -109,6 +117,7 @@ const NodeConnector: React.FC<NodeConnectorProps> = ({
           outputRefs={outputRefs}
           inputRefs={inputRefs}
           nodeData={nodeData}
+          setNodes={setNodes}
         />
       ))}
     </div>
