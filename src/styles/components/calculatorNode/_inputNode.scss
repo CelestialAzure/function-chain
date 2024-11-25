@@ -1,7 +1,8 @@
 .initial-input {
   position: absolute;
-  right: calc(100% + 67px);
-  bottom: -100%;
+  right: calc(100% + 29px);
+  bottom: calc(100% - 32px);
+
   width: max-content;
   display: flex;
   flex-direction: column;
@@ -25,12 +26,14 @@
     display: flex;
     flex-direction: row;
     height: 50px;
+    box-sizing: border-box;
     &--left {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 36px;
       border-left: 1px solid #ffeed5;
+      position: relative;
     }
     &--right {
       display: flex;

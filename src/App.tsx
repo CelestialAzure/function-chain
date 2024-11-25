@@ -51,7 +51,7 @@ const App: React.FC = () => {
 
   //* To add a new node/function to the chain,
   //* simply find the isFinal node, set it to false and remap it to the new object (which will now be isFinal).
-  console.log("nodes", nodes);
+
   return (
     <div className="function-chain--wrapper">
       <div className="function-chain">

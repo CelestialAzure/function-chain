@@ -1,4 +1,5 @@
 import React from "react";
+import CircleIcon from "./internalComponents/CircleIcon";
 
 interface OutputNodeProps {
   value: number | null | undefined;
@@ -12,28 +13,29 @@ const OutputNode: React.FC<OutputNodeProps> = ({ value }) => {
       </div>
       <div className="final-output--bottom">
         <div className="final-output--bottom--left">
+          <CircleIcon />
           <svg
-            viewBox="0 0 10 10"
-            fill="red"
-            stroke="currentColor"
-            height={15}
-            width={15}
+            className="final-output---connector-line"
+            width="67"
+            height="7"
+            style={{
+              position: "absolute",
+              left: "-120%",
+              top: "50%",
+              transform: "translateY(-50%)",
+              backgroundColor: "transparent",
+            }}
           >
-            <circle
-              cx="5"
-              cy="5"
-              r="4"
-              stroke="#dbdbdb"
-              strokeWidth={1}
+            <line
+              x1="3.5"
+              y1="3.5"
+              x2="60"
+              y2="3.5"
               fill="none"
-            />
-            <circle
-              cx="5"
-              cy="5"
-              r="2"
-              stroke="#4791ff"
-              strokeWidth={1}
-              fill="#4791ff"
+              stroke="#0066ff"
+              strokeWidth="7"
+              opacity="0.3"
+              style={{ strokeLinecap: "round" }}
             />
           </svg>
         </div>

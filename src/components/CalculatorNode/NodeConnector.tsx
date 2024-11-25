@@ -2,6 +2,7 @@ import React from "react";
 import { FunctionNode } from "../../helpers/types";
 import OutputNode from "./OutputNode";
 import InputNode from "./InputNode";
+import CircleIcon from "./internalComponents/CircleIcon";
 interface NodeProps {
   position: number;
   outputRefs: React.MutableRefObject<(HTMLDivElement | null)[]>;
@@ -31,30 +32,7 @@ const Node: React.FC<NodeProps> = ({
             className="node-connector--connection_point"
             ref={(el) => (outputRefs.current[nodeData.id] = el)}
           >
-            <svg
-              viewBox="0 0 10 10"
-              fill="red"
-              stroke="currentColor"
-              height={15}
-              width={15}
-            >
-              <circle
-                cx="5"
-                cy="5"
-                r="4"
-                stroke="#dbdbdb"
-                strokeWidth={1}
-                fill="none"
-              />
-              <circle
-                cx="5"
-                cy="5"
-                r="2"
-                stroke="#4791ff"
-                strokeWidth={1}
-                fill="#4791ff"
-              />
-            </svg>
+            <CircleIcon />
             {nodeData.isFinal && <OutputNode value={nodeData?.finalOutput} />}
           </div>
         </>
@@ -66,30 +44,8 @@ const Node: React.FC<NodeProps> = ({
             className="node-connector--connection_point"
             ref={(el) => (inputRefs.current[nodeData.id] = el)}
           >
-            <svg
-              viewBox="0 0 10 10"
-              fill="red"
-              stroke="currentColor"
-              height={15}
-              width={15}
-            >
-              <circle
-                cx="5"
-                cy="5"
-                r="4"
-                stroke="#dbdbdb"
-                strokeWidth={1}
-                fill="none"
-              />
-              <circle
-                cx="5"
-                cy="5"
-                r="2"
-                stroke="#4791ff"
-                strokeWidth={1}
-                fill="#4791ff"
-              />
-            </svg>
+            <CircleIcon />
+
             {nodeData.isInitial && (
               <InputNode node={nodeData} setNodes={setNodes} />
             )}
