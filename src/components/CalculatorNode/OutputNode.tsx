@@ -1,7 +1,7 @@
 import React from "react";
 
 interface OutputNodeProps {
-  value: number;
+  value: number | null | undefined;
 }
 
 const OutputNode: React.FC<OutputNodeProps> = ({ value }) => {

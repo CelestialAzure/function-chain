@@ -23,6 +23,12 @@ const ExpressionInput: React.FC<ExpressionInputProps> = ({
               input: null, // Your evaluation logic here
             };
           }
+          if (node.isFinal && n.id === node.id) {
+            return {
+              ...n,
+              finalOutput: null,
+            };
+          }
           return n;
         });
       });
@@ -37,6 +43,11 @@ const ExpressionInput: React.FC<ExpressionInputProps> = ({
               input: evaluateEquation(node.equation, node.input), // Your evaluation logic here
             };
           }
+          if (node.isFinal && n.id === node.id)
+            return {
+              ...n,
+              finalOutput: evaluateEquation(node.equation, node.input),
+            };
           return n;
         });
       });
@@ -46,12 +57,16 @@ const ExpressionInput: React.FC<ExpressionInputProps> = ({
   const updateOutputNode = (equation: string) => {
     setNodes((prevNodes) => {
       return prevNodes.map((n) => {
-        if (n.id === node.outputUser.id) {
+        if (n.id === node.outputUser.id)
           return {
             ...n,
             input: evaluateEquation(equation, node.input), // Your evaluation logic here
           };
-        }
+        if (node.isFinal && n.id === node.id)
+          return {
+            ...n,
+            finalOutput: evaluateEquation(equation, node.input),
+          };
         return n;
       });
     });

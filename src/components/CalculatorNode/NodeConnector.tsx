@@ -51,7 +51,7 @@ const Node: React.FC<NodeProps> = ({
                 fill="#4791ff"
               />
             </svg>
-            {nodeData.isFinal && <OutputNode value={10} />}
+            {nodeData.isFinal && <OutputNode value={nodeData?.finalOutput} />}
           </div>
         </>
       )}

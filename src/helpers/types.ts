@@ -9,6 +9,7 @@
     input: number | null;
     isInitial: boolean;
     isFinal: boolean;
+    finalOutput?:number|null|undefined
   }
   interface Line {
     x1: number;
